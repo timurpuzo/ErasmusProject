@@ -1,0 +1,441 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+} 
+.menu-container {
+    position: relative;
+    max-width: 100%;
+}
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9004d;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.menu-toggle i {
+    margin-right: 2px;
+}
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.menu li {
+    text-align: center;
+    padding: 15px 25px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+}
+.menu li:last-child {
+    border-bottom: none;
+}
+.menu-toggle:hover .menu {
+    display: block;
+    opacity: 1;
+}
+.menu-toggle:hover i {
+    color: #f9004d;
+}
+.hero {
+    height: 90vh;
+    max-width: 100%;
+    background-image: url(159295BE-8141-45C7-85A7-5C79164E4517.png);
+    background-position: center;
+    background-size: cover;
+    background-size: 500px;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+.logo {
+    color: white;
+    font-size: 35px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+span {
+    color: #f9004d;
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+nav ul li a {
+    color: #f9004d;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+nav ul li a:hover {
+    color: #f9004d;
+    transition: .4s;
+}
+.project {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: transform .4s;
+}
+.project:hover {
+    transform: scale(1.2);
+}
+.opis {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    color: white;
+}
+h1 {
+    color: white;
+    margin: 20px 0px 20px;
+    font-size: 400%;
+}
+h3 {
+    color: white;
+    font-size: 150%;
+    margin-bottom: 50px;
+}
+h4 {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 150%;
+}
+.newsletter form {
+    max-width: 300%;
+    max-width: 100%;
+    position: relative;
+}
+.newsletter form input:first-child {
+    display: inline-block;
+    max-width: 300%;
+    padding: 14px 130px 14px 15px;
+    border: 2px solid #f9004d;
+    outline: none;
+    border-radius: 30px;
+}
+.newsletter form input:last-child {
+    position:absolute;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: #f9004d;
+    color: white;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+    top: 6px;
+    right: 8px;
+}
+.about {
+    max-width: 100%;
+    padding: 100px 0px;
+    background-color: #191919;
+}
+.about img {
+    height: auto;
+    max-width: 430px;
+}
+.main {
+    max-width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+}
+.about-text {
+    text-align: center; 
+}
+.about-text h2 {
+    color: white;
+    font-size: 75px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.about-text h5 {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+.about-text p {
+    color: #fcfc;
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+.about-text button {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: .4s;
+}
+.about-text button:hover {
+    background-color: transparent;
+    border: 2px solid #f9004d;
+    cursor: pointer;
+}
+.service {
+    background: #101010;
+    max-width: 100%;
+    padding: 100px 0px;
+}
+.title h2 {
+    color: white;
+    font-size: 75px;
+    max-width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+}
+.kutija {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    flex-wrap: wrap; 
+}
+.kartica {
+    height: 365px;
+    max-width: 335px;
+    padding: 20px 35px;
+    background: #191919;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.kartica i {
+    font-size: 50px;
+    display: block;
+    text-align: center;
+    margin: 25px 0px;
+    color: #f9004d;
+}
+.kartica h5 {
+    color: white;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+.kartica .pra p {
+    color: #fcfc;
+    font-size: 16px;
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+.kartica .tipka {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.kartica .tipka:hover {
+    background-color: transparent;
+    border: 2px solid #f9004d;
+    cursor: pointer;
+}
+.contact-me {
+    max-width: 100%;
+    height: 290px;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.contact-me p {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.contact-me .button-two {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: 2px solid transparent;
+    font-weight: bold;
+    padding: 9px 22px;
+    border-radius: 30px;
+    transition: .4s;
+}
+.contact-me .button-two:hover {
+    background-color: transparent;
+    border: 2px solid #f9004d;
+    cursor: pointer;
+}
+footer {
+    position: relative;
+    max-width: 100%;
+    height: 400px;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer p:nth-child(1) {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+footer p:nth-child(2) {
+    color: white;
+    font-size: 17px;
+    max-width: 500px;
+    text-align: center;
+}
+.social {
+    display: flex;
+}
+.social a {
+    width: 50px;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9004d;
+    border-radius: 100%;
+    margin: 22px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+.social a:hover {
+    transform: scale(1.3);
+    transition: .3s;
+}
+.end {
+    position: absolute;
+    color: #f9004d;
+    bottom: 35px;
+    font-size: 14px;
+}
+@media (max-width: 768px) {
+    
+    .service {
+        text-align: center;
+    }
+
+    .about {
+        padding: 30px 0;
+    }
+
+    .service {
+        padding: 50px 0;
+    }
+}
+@media (max-width: 768px) {
+    .opis {
+        text-align: center;
+        max-width: 80%;
+        margin: 10% auto;
+        margin-top: 70px;
+        position: absolute;
+    }
+    .opis h4{
+        font-size: 15px;
+    }
+    .opis h1{
+        font-size: 25px;
+    }
+    .opis h3{
+        font-size: 15px;
+    }
+    .newsletter {
+        text-align: center;
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        margin-right: 10%;
+    }
+    .newsletter form {
+        max-width: 100%;
+    }
+    .newsletter ::placeholder{
+        font-size: 10px;
+    }
+    .newsletter form input:first-child {
+        max-width: 100%;
+        margin-bottom: 10px;
+        margin-right: 10%;
+    }
+    .newsletter form input:last-child{
+        max-width: 100%;
+        margin-left: 10%;
+    }
+    .about {
+        padding: 50px 0;
+    }
+    .about img {
+        max-width: 100%; 
+        max-width: 300px; 
+        margin-bottom: 30px; 
+    }
+    .about-text {
+        max-width: 100%; 
+        text-align: center; 
+        padding: 0 15px; 
+    }
+    .about-text h2 {
+        font-size: 35px; 
+    }
+    .about-text h5 {
+        font-size: 18px; 
+        margin-bottom: 20px;
+    }
+    .about-text p {
+        font-size: 16px; 
+        margin-bottom: 30px; 
+    }
+    .about-text button {
+        padding: 12px 25px; 
+        font-size: 16px; 
+    }
+    .contact-me p{
+        font-size: 20px;
+    }
+    .title h2{
+        font-size: 50px;
+    }
+}
