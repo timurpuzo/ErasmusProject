@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Puzo Barbershop</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .booking-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #191919;
+            border-radius: 10px;
+            color: white;
+        }
+        .booking-container h1 {
+            color: #f9004d;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-control {
+            background: #101010;
+            border: 1px solid #333;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .btn-book {
+            background: #f9004d;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-weight: bold;
+        }
+        .btn-book:hover {
+            background: #d80043;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h1>Book Your Appointment</h1>
+        <form action="process_booking.php" method="POST">
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Create Password" required>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" name="date" required>
+            </div>
+            <div class="form-group">
+                <input type="time" class="form-control" name="time" required>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="service" required>
+                    <option value="">Select Service</option>
+                    <option value="Haircut">Haircut</option>
+                    <option value="Beard Trim">Beard Trim</option>
+                    <option value="Haircut + Beard">Haircut + Beard</option>
+                    <option value="Hair Coloring">Hair Coloring</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-book">Confirm Booking</button>
+        </form>
+    </div>
+</body>
+</html>

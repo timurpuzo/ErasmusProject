@@ -36,6 +36,33 @@
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+.book-button {
+    display: inline-block;
+    width: 300px;
+    padding: 15px;
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.book-button:hover {
+    background-color: #d80043;
+}
+
+@media (max-width: 768px) {
+    .book-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
 .menu li {
     text-align: center;
     padding: 15px 25px;
@@ -120,38 +147,45 @@ h1 {
 h3 {
     color: white;
     font-size: 150%;
-    margin-bottom: 50px;
+    margin-bottom: 20px; /* Reduced from 50px to match image */
 }
 h4 {
     color: white;
     letter-spacing: 2px;
     font-size: 150%;
 }
+.newsletter {
+    margin-top: 30px;
+}
 .newsletter form {
-    max-width: 300%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 100%;
-    position: relative;
 }
-.newsletter form input:first-child {
-    display: inline-block;
-    max-width: 300%;
-    padding: 14px 130px 14px 15px;
-    border: 2px solid #f9004d;
-    outline: none;
-    border-radius: 30px;
-}
-.newsletter form input:last-child {
-    position:absolute;
-    display: inline-block;
-    outline: none;
+.newsletter form input[type="email"] {
+    width: 300px;
+    padding: 15px;
+    margin-bottom: 15px;
     border: none;
-    padding: 10px 30px;
-    border-radius: 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.newsletter form input[type="submit"] {
+    width: 300px;
+    padding: 15px;
     background-color: #f9004d;
     color: white;
-    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
-    top: 6px;
-    right: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.newsletter form input[type="submit"]:hover {
+    background-color: #d80043;
 }
 .about {
     max-width: 100%;
@@ -269,7 +303,6 @@ h4 {
     border-radius: 30px;
     transition: .4s;
 }
-
 .kartica .tipka:hover {
     background-color: transparent;
     border: 2px solid #f9004d;
@@ -354,15 +387,12 @@ footer p:nth-child(2) {
     font-size: 14px;
 }
 @media (max-width: 768px) {
-    
     .service {
         text-align: center;
     }
-
     .about {
         padding: 30px 0;
     }
-
     .service {
         padding: 50px 0;
     }
@@ -389,22 +419,17 @@ footer p:nth-child(2) {
         max-width: 80%;
         margin: 0 auto;
         margin-bottom: 30px;
-        margin-right: 10%;
     }
     .newsletter form {
         max-width: 100%;
     }
+    .newsletter form input[type="email"],
+    .newsletter form input[type="submit"] {
+        width: 100%;
+        max-width: 300px;
+    }
     .newsletter ::placeholder{
         font-size: 10px;
-    }
-    .newsletter form input:first-child {
-        max-width: 100%;
-        margin-bottom: 10px;
-        margin-right: 10%;
-    }
-    .newsletter form input:last-child{
-        max-width: 100%;
-        margin-left: 10%;
     }
     .about {
         padding: 50px 0;
