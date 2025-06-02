@@ -1,58 +1,39 @@
 <?php
-// Include PHPMailer classes
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// Omogući prikaz grešaka (dok testiraš)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Load PHPMailer files
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
+// Povezivanje sa bazom
+$db_host = 'localhost';
+$db_name = 'baza'; // <- OVO promeni ako ti je baza drugačijeg imena
+$db_user = 'root';
+$db_pass = '';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form values
-    $email = $_POST['email'];
-    $password = $_POST['password']; // Note: do NOT store or email passwords in real apps
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    $service = $_POST['service'];
+try {
+    $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Create the email body
-    $message = "
-        <h2>New Appointment Booking</h2>
-        <p><strong>Email:</strong> {$email}</p>
-        <p><strong>Password:</strong> {$password}</p>
-        <p><strong>Date:</strong> {$date}</p>
-        <p><strong>Time:</strong> {$time}</p>
-        <p><strong>Service:</strong> {$service}</p>
-    ";
+    // Podaci iz forme
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $subject = $_POST['subject'] ?? '';
+    $message = $_POST['message'] ?? '';
 
-    $mail = new PHPMailer(true);
+    // SQL INSERT
+    $stmt = $conn->prepare("INSERT INTO appointments (name, email, subject, message) 
+                            VALUES (:name, :email, :subject, :message)");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':subject', $subject);
+    $stmt->bindParam(':message', $message);
+    $stmt->execute();
 
-    try {
-        // SMTP server settings
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'timurpuzo90@gmail.com'; // ✅ Your Gmail
-        $mail->Password = ''; // ✅ Gmail App Password, not your real Gmail password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-        // Email content
-        $mail->setFrom('timurpuzo90@gmail.com', 'Barbershop Booking');
-        $mail->addAddress('timurpuzo90@gmail.com'); // ✅ Recipient
-        $mail->isHTML(true);
-        $mail->Subject = 'New Appointment Booking';
-        $mail->Body = $message;
-
-        $mail->send();
-        header("Location: thank_you.html");
-        exit();
-    } catch (Exception $e) {
-        echo "Email could not be sent. Error: {$mail->ErrorInfo}";
-    }
-} else {
-    header("Location: book.html");
+    // Preusmeri na "thank you" stranicu
+    header("Location: thank_you.html");
     exit();
+
+} catch (PDOException $e) {
+    echo "Greška: " . $e->getMessage();
 }
 ?>
